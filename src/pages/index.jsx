@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./privateRoute";
-import Register from "./register/register";
+import Register from "./register/index";
 
 const Pages = () => {
   return (
