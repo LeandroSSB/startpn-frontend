@@ -1,7 +1,7 @@
 
 
 
-const Button = ({ borderRadius, borderStyle, padding, margin, outline, width, height, background, color, children, onClick }) => {
+const Button = ({ borderRadius, borderStyle, padding, margin, type, outline, width, height, background, color, children, onClick }) => {
 
   const styleButton = {
     borderRadius,
@@ -16,7 +16,7 @@ const Button = ({ borderRadius, borderStyle, padding, margin, outline, width, he
   }
 
   return (
-    <button style={styleButton} onClick={onClick}>
+    <button style={styleButton} onClick={onClick} type={type}>
       { children }
     </button>
   )
