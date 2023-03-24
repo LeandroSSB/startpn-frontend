@@ -7,5 +7,7 @@ import engine from "./svg/engine.svg"
 import playbooks from "./svg/playbooks.svg"
 import toDo from "./svg/toDo.svg"
 import leave from "./svg/leave.svg"
+import plus from "./svg/plus.svg"
+import plusWhite from "./svg/plusWhite.svg"
 
-export { steveJobs, landingWave, yourLogo, account, baloon, engine, playbooks, toDo, leave }
+export { steveJobs, landingWave, yourLogo, account, baloon, engine, playbooks, toDo, leave, plus, plusWhite }

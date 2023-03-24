@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { List } from "../components/index"
 import { yourLogo, baloon, engine, account, toDo, playbooks, leave } from "./../images"
 
@@ -87,6 +87,7 @@ const DashboardLayout = ({ children }) => {
     <section style={sectionStyle}>
       <span style={accountStyle}> Seu nome </span>
       {children}
+      <Outlet />
     </section>
     </main>
 

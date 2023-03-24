@@ -31,6 +31,7 @@ export const InputStyle = ({ name }) =>  {
 
 export const buttonStyle = {
   borderRadius: '60px',
+  border: "none",
   background: '#476EE6',
   borderStyle: 'none',
   padding: '1rem',
