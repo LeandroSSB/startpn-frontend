@@ -2,9 +2,11 @@ export const buttonStyle = {
   borderRadius: '60px',
   background: '#476EE6',
   borderStyle: 'none',
-  padding: '.8rem',
+  padding: '1rem',
   color: "white",
-  width: '200px'
+  width: '250px',
+  fontSize: "18px",
+  fontWeight: "600"
 }
 
 export const InputStyle = ({ name }) =>  {
@@ -14,7 +16,7 @@ export const InputStyle = ({ name }) =>  {
   color:"#A0A0A0",
   borderRadius: "10px",
   width: "290px",
-  margin: "1rem 0 1rem .5rem",
+  margin: "1rem 0 1rem 0rem",
   height: "50px",
   borderStyle: "solid",
   padding: "0px 0px 0px 15px",
@@ -26,11 +28,11 @@ export const formStyle = {
   display: "flex",
   flexFlow: "column",
   justifyContent: "center",
-  alignItems: "center",
+  alignItems: "flex-start",
   margin: "0",
   height: "",
   background: "",
-  padding: "0 62px",
+  padding: "0 0 0 3rem",
   borderStyle: "",
   borderColor: "",
   color: ""
@@ -38,7 +40,6 @@ export const formStyle = {
 
 export const LabelStyle = {
   color: "black",
-  padding: "0 0 0 1rem",
   weight: "400"
 }
 
@@ -79,6 +80,7 @@ export const h1Style = {
 
 export const termsStyle = {
   fontWeight: "600",
+  fontSize: "17px",
   width: "100%",
   opacity: "90%"
 }
@@ -94,4 +96,25 @@ export const hyperLogin = {
   textDecoration: "none",
   color: "#476EE6",
   padding: "3rem"
+}
+
+
+export const container  = {
+  display: "flex",
+  width: "100%",
+  justifyContent: "space-around",
+}
+
+export const divider1 = {
+  display: "flex", flexFlow: "column"
+}
+
+export const divider2 = {
+  display: "flex", flexFlow: "column", padding: "0 0 0 1rem"
+}
+
+export const buttonDiv = {
+  display: "flex",
+  justifyContent: "center",
+  width: "100%"
 }

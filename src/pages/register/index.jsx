@@ -1,5 +1,5 @@
-import { Button, Form, Input, Label, Span, Hyperlink, H1 } from "../../components/index"
-import { buttonStyle, InputStyle, formStyle, LabelStyle, checkboxStyle, realCheck, hyperlinkStyle, h1Style, termsStyle, logged, hyperLogin } from "./styles"
+import { Button, Form, Input, Label, Span, Hyperlink, H1, Div } from "../../components/index"
+import { buttonStyle, InputStyle, formStyle, LabelStyle, checkboxStyle, realCheck, hyperlinkStyle, h1Style, termsStyle, logged, hyperLogin, container, divider1, divider2, buttonDiv } from "./styles"
 import api from "../../services/api"
 import { TwoColumnLayout } from "../../layouts"
 import { useState } from "react"
@@ -39,23 +39,23 @@ const Register = () => {
     <TwoColumnLayout >
       <H1 {...h1Style} > Cadastro </H1>
       <Form onSubmit={handleSubmit} {...formStyle}>
-        <div style={{ display: "flex" }}>
-          <div style={{ display: "flex", flexFlow: "column"}} >
+        <Div {...container}>
+          <Div {...divider1} >
             <Label  { ...LabelStyle } htmlFor="name" > Nome </Label>
             <Input required id="name"        type="text"     onChange={(e) => setName(e.target.value)}    { ...InputStyle({ name: "Insira seu nome"  }) } />
 
             <Label  { ...LabelStyle } htmlFor="password" > Senha </Label>
             <Input required id="password"    type="password" onChange={(e) => setPass(e.target.value)}    { ...InputStyle({ name: "Insira uma senha" }) } />
-          </div>
+          </Div>
 
-          <div style={{ display: "flex", flexFlow: "column", padding: "0 0 0 2rem"}}>
+          <Div {...divider2} >
             <Label  { ...LabelStyle } htmlFor="email" > E-mail </Label>
             <Input required id="email"       type="email"    onChange={(e) => setEmail(e.target.value)}   { ...InputStyle({ name: "Insira seu email" }) } />
             
             <Label  { ...LabelStyle } htmlFor="confirmPass" > Confirme sua senha </Label>
             <Input required id="confirmPass" type="password" onChange={(e) => setConfirm(e.target.value)} { ...InputStyle({ name: "Confirma senha"   }) } />
-          </div>
-        </div>
+          </Div>
+        </Div>
 
         <H1 {...termsStyle}> Termos de uso e privacidade </H1>
         <Span>
@@ -65,7 +65,9 @@ const Register = () => {
         </Span>
           <Hyperlink {...hyperlinkStyle} href={"#checkbox"}> Termos de uso e Privacidade </Hyperlink>
 
-        <Button { ...buttonStyle } type="submit" > Cadastrar  </Button>
+        <Div {...buttonDiv}>
+          <Button { ...buttonStyle } type="submit" > Cadastrar  </Button>
+        </Div>
 
       </Form>
       

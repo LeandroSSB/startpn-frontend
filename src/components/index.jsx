@@ -5,5 +5,6 @@ import Label from "./label";
 import Span from "./span";
 import Hyperlink from "./hyperlink";
 import H1 from "./h1";
+import Div from "./div";
 
-export { Button, Input, Form, Label, Span, Hyperlink, H1 }
+export { Button, Input, Form, Label, Span, Hyperlink, H1, Div }
