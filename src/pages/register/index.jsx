@@ -1,5 +1,5 @@
-import { Button, Form, Input, Label, Span, Hyperlink } from "../../components/index"
-import { buttonStyle, InputStyle, formStyle, LabelStyle, checkboxStyle, realCheck, hyperlinkStyle } from "./styles"
+import { Button, Form, Input, Label, Span, Hyperlink, H1 } from "../../components/index"
+import { buttonStyle, InputStyle, formStyle, LabelStyle, checkboxStyle, realCheck, hyperlinkStyle, h1Style, termsStyle, logged, hyperLogin } from "./styles"
 import api from "../../services/api"
 import { TwoColumnLayout } from "../../layouts"
 import { useState } from "react"
@@ -37,7 +37,7 @@ const Register = () => {
 
   return (
     <TwoColumnLayout >
-      <h1> Cadastro </h1>
+      <H1 {...h1Style} > Cadastro </H1>
       <Form onSubmit={handleSubmit} {...formStyle}>
         <div style={{ display: "flex" }}>
           <div style={{ display: "flex", flexFlow: "column"}} >
@@ -57,6 +57,7 @@ const Register = () => {
           </div>
         </div>
 
+        <H1 {...termsStyle}> Termos de uso e privacidade </H1>
         <Span>
           <Span {...{...realCheck, background: checkbox? "#3434ed" : "#ffffff"}} onClick={() => setCheckbox((check) => !check)} ></Span>
           <Input  readOnly required {...checkboxStyle} type="checkbox" id="checkbox" checked={checkbox} onChange={() => setCheckbox((check) => !check)} ></Input>
@@ -67,6 +68,8 @@ const Register = () => {
         <Button { ...buttonStyle } type="submit" > Cadastrar  </Button>
 
       </Form>
+      
+      <Span {...logged}> Já tem uma conta? <Hyperlink {...hyperLogin} href="/login"> Login</Hyperlink> </Span>
 
     </TwoColumnLayout>
   )

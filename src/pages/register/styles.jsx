@@ -68,3 +68,30 @@ export const hyperlinkStyle = {
   textDecoration: "none"
 
 }
+
+export const h1Style = {
+  color: "#476EE6",
+  fontSize: "33px",
+  width: "100%",
+  fontWeight: "500",
+  margin: "0 0 2rem 8.7rem"
+}
+
+export const termsStyle = {
+  fontWeight: "600",
+  width: "100%",
+  opacity: "90%"
+}
+
+export const logged = {
+  color: "#3C3C43B8",
+  fontSize: "20px",
+  fontWeight: "500",
+  margin: "6rem",
+}
+
+export const hyperLogin = {
+  textDecoration: "none",
+  color: "#476EE6",
+  padding: "3rem"
+}
