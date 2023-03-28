@@ -1,6 +1,6 @@
-import { Outlet, useNavigate } from "react-router-dom"
+import { Outlet, useNavigate, NavLink, Link } from "react-router-dom"
 import { List } from "../components/index"
-import { yourLogo, baloon, engine, account, toDo, playbooks, leave } from "./../images"
+import { yourLogo, baloon, engine, account, toDo, playbooksSelect, playbooks, leave, accountSelect } from "./../images"
 
 
 
@@ -30,7 +30,6 @@ const DashboardLayout = ({ children }) => {
 
 
   const handleLeave = () => {
-    console.log("hey")
     localStorage.clear()
     navigate("/login")
   }
@@ -41,25 +40,28 @@ const DashboardLayout = ({ children }) => {
     margin: "2rem 0rem 3rem 0rem",
     padding: "0"
   }
+  
+  const itemStyle = ({ isActive, IsPending }) =>  {
 
-  const itemStyle = {
-    display: "flex",
-    alignItems: "center",
-    margin: "1.5rem 0rem",
-    width: "100%",
-    fontSize: "18px",
-    cursor: "pointer"
+    return {
+      display: "flex",
+      alignItems: "center",
+      margin: "1.5rem 0rem",
+      width: "100%",
+      fontSize: "18px",
+      cursor: "pointer",
+      textDecoration: "none",
+      color: "#787486",
+      backgroundColor: isActive? "#F7F9FB" : "",
+      padding: isActive? "5px 10px" : "",
+      borderRadius: "8px"
+    }
   }
 
   const imageStyle = {
     margin: "0 1rem 0rem 0"
   }
 
-
-  const linkStyle = {
-    textDecoration: "none",
-    color: "#787486"
-  }
 
   const accountStyle = {
     width: "234.43px",
@@ -71,18 +73,23 @@ const DashboardLayout = ({ children }) => {
     borderRadius: "60px"
   }
 
+
   return (
     <main style={mainStyle}>
     <header style={headerStyle}>
       <img src={yourLogo} alt="youlogo" width="200px"/>
-      <ul style={listStyles}>
-        <li style={{...itemStyle, background: "#F7F9FB", borderRadius: "18px", padding: "3px 10px"}} > <img style={imageStyle} src={playbooks} alt="playbooks" /> <a style={linkStyle} href="/playbooks"> Playbooks  </a>  </li>
-        <li style={itemStyle} > <img style={imageStyle} src={toDo} alt="toDo" /> Exemplo                        </li>
-        <li style={itemStyle} > <img style={imageStyle} src={baloon} alt="baloon" /> Exemplo                    </li>
-        <li style={itemStyle} > <img style={imageStyle} src={engine} alt="engine" /> Exemplo                    </li>
-        <li style={itemStyle} > <img style={imageStyle} src={account} alt="account" /> <a  style={linkStyle} href="/account"> Minha Conta </a>     </li>
-      </ul>
-        <span style={itemStyle} onClick={ () => handleLeave() }> <img style={imageStyle} src={leave} alt="leave" /> Sair </span>
+      <nav style={listStyles}>
+        <NavLink style={itemStyle} to={"/dashboard/playbooks"} >
+          {({ isActive }) =>  <> <img style={imageStyle} src={isActive? playbooksSelect : playbooks}/> Playbooks </> }
+        </NavLink>
+        <NavLink style={itemStyle} to={"/dashboard/example"}> <img style={imageStyle} src={toDo} alt="toDo" /> Exemplo                         </NavLink>
+        <NavLink style={itemStyle} to={"/dashboard/example"}> <img style={imageStyle} src={baloon} alt="baloon" /> Exemplo                     </NavLink>
+        <NavLink style={itemStyle} to={"/dashboard/example"}> <img style={imageStyle} src={engine} alt="engine" /> Exemplo                     </NavLink>
+        <NavLink style={itemStyle} to={"/dashboard/account"}>
+          {({ isActive }) =>  <> <img style={imageStyle} src={isActive? accountSelect : account}/> Minha conta </> }
+        </NavLink>
+      </nav>
+        <span style={itemStyle({ isActive: false})}  onClick={ () => handleLeave() }> <img style={imageStyle} src={leave} alt="leave" /> Sair </span>
     </header>
     <section style={sectionStyle}>
       <span style={accountStyle}> Seu nome </span>
