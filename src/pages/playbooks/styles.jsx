@@ -16,7 +16,7 @@ export const categoriesStyle = {
   padding: "21px"
 }
 
-export const cards = {
+export const cardsStyle = {
   display: "flex",
   flexFlow: "column",
   alignItems: "center",

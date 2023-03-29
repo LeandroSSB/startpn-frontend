@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
 import { useCategories } from "../../context/categories"
+import { useCards } from "../../context/cards"
 import { plus, plusWhite } from "../../images"
 import { DashboardLayout } from "../../layouts"
 import { Button, Div, Form, H1, Input, Item, List, Span } from "./../../components/index"
-import { container, cards, cardsItem, categoriesStyle, plusButton, title, listStyle, h1Style, itemStyle, InputStyle } from "./styles"
+import { container, cardsStyle, cardsItem, categoriesStyle, plusButton, title, listStyle, h1Style, itemStyle, InputStyle } from "./styles"
 
 const Playbooks = () => {
-  const { addCategory, categories} = useCategories()
   const [toggleCategory, setToggleCategory] = useState(false)
   const [newCategory, setNewCategory] = useState("")
+  const { addCategory, categories} = useCategories()
+  const { cards, createCard, removeCard} = useCards()
+
 
   const handleCreateCategory = (e) => {
     e.preventDefault()
@@ -30,10 +33,11 @@ const Playbooks = () => {
             }
           </List>
         </Div>
-        <Div {...cards}>
+        <Div {...cardsStyle}>
             <Div {...cardsItem} > 
               <H1 {...title} > Sem cards </H1>
             </Div>
+            {cards.map(card => <Div key={card.name}>  </Div> )}
         </Div>
       </Div>
       <Button {...plusButton} > <img src={plusWhite} alt="plus" /></Button>
