@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { useCategories } from "../../context/categories"
 import { useCards } from "../../context/cards"
 import { plus, plusWhite } from "../../images"
@@ -13,6 +13,8 @@ const Playbooks = () => {
   const { addCategory, categories} = useCategories()
   const { cards, createCard, removeCard} = useCards()
 
+
+  const navigate = useNavigate()
 
   const handleCreateCategory = (e) => {
     e.preventDefault()
@@ -40,7 +42,7 @@ const Playbooks = () => {
             {cards.map(card => <Div key={card.name}>  </Div> )}
         </Div>
       </Div>
-      <Button {...plusButton} > <img src={plusWhite} alt="plus" /></Button>
+      <Button {...plusButton} onClick={() => navigate("/dashboard/playbooks/create")}> <img src={plusWhite} alt="plus" /></Button>
     </>
   )
 }

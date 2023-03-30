@@ -8,6 +8,6 @@ import H1 from "./h1";
 import Div from "./div";
 import List from "./list";
 import Item from "./item";
-import OptionsList from "./optionsList";
+import Select from "./select";
 
-export { Button, Input, Form, Label, Span, Hyperlink, H1, Div, List, Item, OptionsList }
+export { Button, Input, Form, Label, Span, Hyperlink, H1, Div, List, Item, Select }

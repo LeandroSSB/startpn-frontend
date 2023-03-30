@@ -2,9 +2,10 @@ export const editorStyle = {
   border: "1px solid #D7D7D7",
   width: "70vw",
   height: "60vh",
-  overflow: "auto",
+  overflow: "hidden",
   margin: "0px 0px 0px 47px",
   borderRadius: "10px",
+  zIndex: "1"
 }
 
 
@@ -52,5 +53,6 @@ export const buttonStyle = {
   color: "white",
   width: '200px',
   fontSize: "18px",
-  fontWeight: "600"
+  fontWeight: "600",
+  cursor: "pointer"
 }
