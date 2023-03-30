@@ -25,5 +25,32 @@ export const editorOptionsStyle = {
 
 export const editorTextStyle = {
   padding: "20px"
+}
 
+export const iconStyle = {
+  border: "none",
+  padding: "0 6px",
+  background: "#FFFFFF"
+}
+
+export const activeStyle = {
+  border: "none",
+  background: "#dce0e5",
+  borderRadius: "10px",
+  padding: "0 6px",
+}
+
+export const buttonStyle = {
+  position: "absolute",
+  right: "3rem",
+  bottom: "3rem",
+  borderRadius: '60px',
+  border: "none",
+  background: '#476EE6',
+  borderStyle: 'none',
+  padding: '1rem',
+  color: "white",
+  width: '200px',
+  fontSize: "18px",
+  fontWeight: "600"
 }

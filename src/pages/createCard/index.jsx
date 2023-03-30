@@ -1,47 +1,38 @@
 import { useState } from "react"
-import { Editor, EditorState, convertToRaw, convertFromRaw } from "draft-js"
-import 'draft-js/dist/Draft.css';
-import { Div, H1, OptionsList } from "../../components";
-import { editorStyle, h1Style, editorOptionsStyle, editorTextStyle } from "./styles";
-
+import { Button, Div, H1, OptionsList } from "../../components";
+import { editorStyle, buttonStyle, h1Style, editorOptionsStyle, editorTextStyle, activeStyle, iconStyle } from "./styles";
+import { boldIcon, italicIcon, strikethroughIcon, underlineIcon } from "../../images";
+import 'react-quill/dist/quill.snow.css';
+import ReactQuill, { Quill } from 'react-quill';
 
 const CreateCard = () => {
-  const [editorState, setEditorState] = useState(
-    () => EditorState.createEmpty(),
-  )
-  // save current data
-  // console.log(JSON.stringify(convertToRaw(editorState.getCurrentContent())))
+  const [value, setValue] = useState('');
 
-  // save previus data
-  // const storedState = convertFromRaw(JSON.parse(editorJSON));
-  
-  const styleMap = {
-    BOLD: {
-      fontWeight: "bold",
-    },
-    ITALIC: {
-      fontStyle: "italic",
-    },
-    UNDERLINE: {
-      textDecoration: "underline",
-    },
+  console.log(value)
+
+
+  const modules = {
+    toolbar: [
+      [{ 'font': [] }],
+      [{ 'header': [1, 2, 3, 4, 5, false] }],
+      ['bold', 'italic', 'underline','strike', ],
+      [{ 'color': [] }, { 'background': [] }],
+      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+      [{ 'script': 'sub'}, { 'script': 'super' }],
+      ['link', 'image'],
+    ],
+
   }
 
-  const options = [
-    { name: "BOLD", icon: "B", style: "BOLD" },
-    { name: "ITALIC", icon: "I", style: "ITALIC" },
-    { name: "UNDERLINE", icon: "U", style: "UNDERLINE" },
-  ];
-
+  
+  
   return (
     <>
       <H1 {...h1Style} > Criar card </H1>
-      <Div {...editorStyle} >
-        <OptionsList {...editorOptionsStyle} editorState={editorState} onChange={setEditorState} options={options} />
-        <Div {...editorTextStyle}>
-          <Editor placeholder="Escreva algo..." editorState={editorState} onChange={setEditorState} customStyleMap={styleMap} />
-        </Div>
-      </Div>
+      
+      <ReactQuill   modules={modules} placeholder="Escreva aqui..." theme="snow" value={value} onChange={setValue}/>
+       
+      <Button {...buttonStyle}> Criar </Button>
     </>
   )
 }

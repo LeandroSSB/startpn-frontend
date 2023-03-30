@@ -11,5 +11,9 @@ import plus from "./svg/plus.svg"
 import plusWhite from "./svg/plusWhite.svg"
 import playbooks from "./svg/playbooks.svg"
 import accountSelect from "./svg/accountSelect.svg"
+import boldIcon from "./svg/boldIcon.svg"
+import italicIcon from "./svg/italicIcon.svg"
+import underlineIcon from "./svg/underlineIcon.svg"
+import strikethroughIcon from "./svg/strikethroughIcon.svg"
 
-export { steveJobs, landingWave, yourLogo, account, baloon, engine, playbooksSelect, toDo, leave, plus, plusWhite, playbooks, accountSelect }
+export { steveJobs, landingWave, yourLogo, account, baloon, engine, playbooksSelect, toDo, leave, plus, plusWhite, playbooks, accountSelect, boldIcon, italicIcon, underlineIcon, strikethroughIcon}
