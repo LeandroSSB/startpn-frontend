@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Editor, EditorState, convertToRaw, convertFromRaw } from "draft-js"
 import 'draft-js/dist/Draft.css';
 import { Div, H1, OptionsList } from "../../components";
-import { editorStyle , h1Style} from "./styles";
+import { editorStyle, h1Style, editorOptionsStyle, editorTextStyle } from "./styles";
 
 
 const CreateCard = () => {
@@ -14,6 +14,7 @@ const CreateCard = () => {
 
   // save previus data
   // const storedState = convertFromRaw(JSON.parse(editorJSON));
+  
   const styleMap = {
     BOLD: {
       fontWeight: "bold",
@@ -24,13 +25,9 @@ const CreateCard = () => {
     UNDERLINE: {
       textDecoration: "underline",
     },
-    'STRIKETHROUGH': {
-      textDecoration: 'line-through',
-    },
   }
 
   const options = [
-    { name: "STRIKETHROUGH", icon: "S", style: "STRIKETHROUGH"},
     { name: "BOLD", icon: "B", style: "BOLD" },
     { name: "ITALIC", icon: "I", style: "ITALIC" },
     { name: "UNDERLINE", icon: "U", style: "UNDERLINE" },
@@ -40,8 +37,10 @@ const CreateCard = () => {
     <>
       <H1 {...h1Style} > Criar card </H1>
       <Div {...editorStyle} >
-        <OptionsList  editorState={editorState} onChange={setEditorState} options={options} />
-        <Editor editorState={editorState} onChange={setEditorState} customStyleMap={styleMap} />
+        <OptionsList {...editorOptionsStyle} editorState={editorState} onChange={setEditorState} options={options} />
+        <Div {...editorTextStyle}>
+          <Editor placeholder="Escreva algo..." editorState={editorState} onChange={setEditorState} customStyleMap={styleMap} />
+        </Div>
       </Div>
     </>
   )
