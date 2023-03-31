@@ -35,6 +35,7 @@ export const cardsItem = {
   height: "20vh",
   overflow: "auto",
   border: "1px solid #D7D7D7",
+  margin: "0px 0px 30px 0px",
   borderRadius: "10px",
   padding: "21px"
 }
@@ -53,7 +54,7 @@ export const plusButton = {
 
 export const title = {
   width: "100%",
-  fontWeight: "500",
+  fontWeight: "600",
   textAlign: "center",
   fontSize: "16px",
   color: "#101828",
@@ -61,6 +62,23 @@ export const title = {
   padding: "0 0 17px 0",
   margin: "0"
 }
+
+export const itemtitle = {
+  fontWeight: "600",
+  textAlign: "center",
+  fontSize: "16px",
+  color: "#101828",
+}
+
+export const itemtitleContainer = {
+  width: "100%",
+  display: "flex",
+  flexFlow: "row",
+  justifyContent: "space-between",
+  padding: "0 10px",
+  borderBottom: "1px solid #E4E4EF",
+}
+
 
 export const listStyle = {
   listStyle: "none",
@@ -83,8 +101,7 @@ export const itemStyle = {
   cursor: "pointer"
 }
 
-export const InputStyle = ({ name }) =>  {
-  return {
+export const InputStyle =   {
   borderColor: "#D7D7D7",
   background: "white",
   color:"#A0A0A0",
@@ -94,6 +111,21 @@ export const InputStyle = ({ name }) =>  {
   height: "28px",
   borderStyle: "solid",
   padding: "0px 0px 0px 15px",
-  placeHolder: name
-  } 
+}
+
+export const buttonStyle = {
+  borderRadius: '60px',
+  border: "none",
+  background: '#476EE6',
+  borderStyle: 'none',
+  padding: '1rem',
+  margin: "0rem 3rem 0rem 0rem",
+  color: "white",
+  width: '170px',
+  fontSize: "18px",
+  fontWeight: "600"
+}
+
+export const contentStyle = {
+  width: "100%"
 }

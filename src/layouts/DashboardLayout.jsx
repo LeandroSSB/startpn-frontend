@@ -67,7 +67,7 @@ const DashboardLayout = ({ children }) => {
     width: "234.43px",
     border: "1px solid #D8D8D8",
     position: "fixed",
-    top: "35px",
+    top: "27px",
     right: "35px",
     padding: "15px",
     borderRadius: "60px"

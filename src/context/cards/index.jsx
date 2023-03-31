@@ -18,17 +18,36 @@ export const CardsProvider = ({ children }) => {
     
   }, [cards])
 
-  const createCard = () => {
+  const createCard = ({ name, category, content}) => {
+    if(cards.find(card => card.name === name)){
+      return alert(`Card ${name} already exists`)
+    }
+    setCards([...cards, {name, category, content} ])
 
   }
 
-  const removeCard = () => {
+  const removeCard = ({ name }) => {
+    if(!cards.find(card => card.name === name)){
+      return alert(`Card ${name} dows not exists`)
+    }
+    const newCards = cards.filter(card => card.name != name)
 
+    setCards(newCards)
+
+  }
+
+  const updateCards = ({ name, newName, content, category }) => {
+    if(!cards.find(card => card.name === name)){
+      return alert(`Card ${name} dows not exists`)
+    }
+    const newCards = cards.filter(card => card.name != name)
+    
+    setCards([...newCards,{ name: newName, content, category }])
 
   }
 
   return (
-    <cardsContext.Provider value={{ cards, createCard, removeCard }}> 
+    <cardsContext.Provider value={{ cards, createCard, removeCard, updateCards }}> 
       { children } 
     </cardsContext.Provider>
   )

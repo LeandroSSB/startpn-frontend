@@ -1,6 +1,6 @@
 
 
-const Select = ({ children, borderRadius, display, margin, outline, width, height, background, padding, borderStyle, borderColor, color, visibility }) => {
+const Select = ({ children, borderRadius, defaultValue, onChange, display, margin, outline, width, height, background, padding, borderStyle, borderColor, color, visibility }) => {
 
   const styles = {
     borderRadius,
@@ -18,7 +18,8 @@ const Select = ({ children, borderRadius, display, margin, outline, width, heigh
   }
 
   return (
-    <select style={styles}>
+    <select defaultValue={defaultValue}  style={styles} onChange={onChange}>
+      <option disabled value=""></option>
       {children.map(option => ( <option key={option} value={option}> {option} </option>))}
     </select>
   )
