@@ -25,7 +25,7 @@ const DashboardLayout = ({ children }) => {
   }
 
   const sectionStyle = {
-    
+    width: "100%"
   }
 
 

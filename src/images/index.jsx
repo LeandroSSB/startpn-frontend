@@ -15,5 +15,6 @@ import boldIcon from "./svg/boldIcon.svg"
 import italicIcon from "./svg/italicIcon.svg"
 import underlineIcon from "./svg/underlineIcon.svg"
 import strikethroughIcon from "./svg/strikethroughIcon.svg"
+import cameraIcon from "./svg/cameraIcon.svg"
 
-export { steveJobs, landingWave, yourLogo, account, baloon, engine, playbooksSelect, toDo, leave, plus, plusWhite, playbooks, accountSelect, boldIcon, italicIcon, underlineIcon, strikethroughIcon}
+export { steveJobs, cameraIcon, landingWave, yourLogo, account, baloon, engine, playbooksSelect, toDo, leave, plus, plusWhite, playbooks, accountSelect, boldIcon, italicIcon, underlineIcon, strikethroughIcon}
