@@ -41,7 +41,7 @@ const DashboardLayout = ({ children }) => {
     padding: "0"
   }
   
-  const itemStyle = ({ isActive, IsPending }) =>  {
+  const itemStyle = ({ isActive }) =>  {
 
     return {
       display: "flex",
