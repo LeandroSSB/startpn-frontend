@@ -1,6 +1,6 @@
 
 
-const Input = ({ borderRadius, type, visibility, display, borderStyle, checked, readOnly, required, id, borderColor, onChange, padding, margin, outline, width, height, background, color, placeHolder }) => {
+const Input = ({ borderRadius, type,defaultValue, visibility, display, borderStyle, checked, readOnly, required, id, borderColor, onChange, padding, margin, outline, width, height, background, color, placeHolder }) => {
 
   const styleInput = {
     borderRadius,
@@ -16,9 +16,8 @@ const Input = ({ borderRadius, type, visibility, display, borderStyle, checked, 
     color,
     visibility
   }
-
   return (
-    <input style={styleInput} placeholder={placeHolder} onChange={onChange} type={type} required={required} id={id} checked={checked} readOnly={readOnly} />
+    <input style={styleInput} defaultValue={defaultValue} placeholder={placeHolder} onChange={onChange} type={type} required={required} id={id} checked={checked} readOnly={readOnly} />
   )
 
 }

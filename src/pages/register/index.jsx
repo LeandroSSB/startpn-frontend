@@ -36,7 +36,7 @@ const Register = () => {
   }
 
   return (
-    <TwoColumnLayout >
+    <>
       <H1 {...h1Style} > Cadastro </H1>
       <Form onSubmit={handleSubmit} {...formStyle}>
         <Div {...container}>
@@ -73,7 +73,7 @@ const Register = () => {
       
       <Span {...logged}> Já tem uma conta? <Hyperlink {...hyperLogin} href="/login"> Login</Hyperlink> </Span>
 
-    </TwoColumnLayout>
+    </>
   )
 }
 

@@ -8,3 +8,39 @@ body {
   margin: 0;
   font-family: Poppins, sans-serif;
 }
+
+
+
+
+
+
+
+
+
+
+.ql-picker.ql-font .ql-picker-label[data-value="Poppins"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="Poppins"]::before
+{
+    font-family: "Poppins";
+    content: "Poppins" !important;
+}
+
+
+/* Set content font-families */
+.ql-font-Poppins {
+  font-family: "Poppins";
+}
+
+
+
+.ql-picker.ql-font .ql-picker-label[data-value="sans-serif"]::before, 
+.ql-picker.ql-font .ql-picker-item[data-value="sans-serif"]::before
+{
+    font-family: "sans-serif";
+    content: "sans-serif" !important;
+}
+
+.ql-font-sans-serif {
+  font-family: "sans-serif";
+}
+

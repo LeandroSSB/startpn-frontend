@@ -16,7 +16,7 @@ const Login = () => {
   }
 
   return (
-    <TwoColumnLayout>
+    <>
       <H1> Dados de acesso </H1>
       <Form onSubmit={handleSubmit} {...formStyle}>
         <Label  {...LabelStyle} htmlFor="email">E-mail</Label>
@@ -30,7 +30,7 @@ const Login = () => {
           <Hyperlink {...hyperlinkStyle} href="#forgotPass"> Esqueceu a senha? </Hyperlink>
         </Span>
       </Form>
-    </TwoColumnLayout>
+    </>
   )
 }
 

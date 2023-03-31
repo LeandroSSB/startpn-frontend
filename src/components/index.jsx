@@ -7,5 +7,7 @@ import Hyperlink from "./hyperlink";
 import H1 from "./h1";
 import Div from "./div";
 import List from "./list";
+import Item from "./item";
+import Select from "./select";
 
-export { Button, Input, Form, Label, Span, Hyperlink, H1, Div, List }
+export { Button, Input, Form, Label, Span, Hyperlink, H1, Div, List, Item, Select }

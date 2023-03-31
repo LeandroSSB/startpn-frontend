@@ -1,11 +1,12 @@
 
 
 
-const Button = ({ borderRadius, borderStyle, fontWeight, fontSize, padding, margin, type, outline, width, height, background, color, children, onClick }) => {
+const Button = ({ borderRadius, position,cursor, left, up, right, bottom, border, borderStyle,fontWeight, fontSize, padding, margin, type, outline, width, height, background, color, children, onClick }) => {
 
   const styleButton = {
     borderRadius,
     margin,
+    position,
     outline,
     width,
     height,
@@ -14,7 +15,13 @@ const Button = ({ borderRadius, borderStyle, fontWeight, fontSize, padding, marg
     borderStyle,
     fontWeight,
     color,
-    fontSize
+    fontSize,
+    right,
+    bottom,
+    border,
+    cursor,
+    left,
+    up,
   }
 
   return (

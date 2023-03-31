@@ -4,8 +4,16 @@ import yourLogo from "./svg/yourLogo.svg"
 import account from "./svg/account.svg"
 import baloon from "./svg/baloon.svg"
 import engine from "./svg/engine.svg"
-import playbooks from "./svg/playbooks.svg"
+import playbooksSelect from "./svg/playbooksSelect.svg"
 import toDo from "./svg/toDo.svg"
 import leave from "./svg/leave.svg"
+import plus from "./svg/plus.svg"
+import plusWhite from "./svg/plusWhite.svg"
+import playbooks from "./svg/playbooks.svg"
+import accountSelect from "./svg/accountSelect.svg"
+import boldIcon from "./svg/boldIcon.svg"
+import italicIcon from "./svg/italicIcon.svg"
+import underlineIcon from "./svg/underlineIcon.svg"
+import strikethroughIcon from "./svg/strikethroughIcon.svg"
 
-export { steveJobs, landingWave, yourLogo, account, baloon, engine, playbooks, toDo, leave }
+export { steveJobs, landingWave, yourLogo, account, baloon, engine, playbooksSelect, toDo, leave, plus, plusWhite, playbooks, accountSelect, boldIcon, italicIcon, underlineIcon, strikethroughIcon}

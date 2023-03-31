@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import { steveJobs, landingWave, yourLogo } from "../images"
 
 const TwoColumnLayout = ({ children }) => {
@@ -34,6 +35,7 @@ const TwoColumnLayout = ({ children }) => {
           <img style={{width: "190px", padding: "0 62px"}}src={yourLogo} alt="yourLogo" />
         </header>
         { children }
+        <Outlet />
       </article>
     </main>
   )
