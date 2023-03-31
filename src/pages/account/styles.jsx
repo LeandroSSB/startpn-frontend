@@ -62,3 +62,18 @@ export const inputContainerStyle = {
   flexFlow: "column",
   padding:"30px 10px"
 }
+
+export const accountImageStyle = {
+  width: "115px",
+  height: "115px",
+  flexFlow: "column-reverse",
+  alignItems: "flex-end",
+  display: "flex",
+  borderRadius: "100%",
+  border: "1px solid #D7D7D7",
+  margin: "2rem"
+}
+
+export const imageIconStyle = {
+  cursor: "pointer"
+}

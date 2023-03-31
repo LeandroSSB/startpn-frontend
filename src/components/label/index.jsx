@@ -1,11 +1,11 @@
 
 
 
-const Label = ({children, weight, margin, htmlFor, color, padding,  background, borderRadius, display, outline, width, height,  borderStyle, borderColor,  visibility}) => {
+const Label = ({children, weight, cursor, margin, htmlFor, color, padding,  background, borderRadius, display, outline, width, height,  borderStyle, borderColor,  visibility}) => {
 
 
   const labelStyle = {
-    color, padding, margin, background, weight,borderRadius, display,  outline, width, height,   borderStyle, borderColor,  visibility
+    color, padding, margin, background, cursor, weight,borderRadius, display,  outline, width, height,   borderStyle, borderColor,  visibility
   }
 
   return (
