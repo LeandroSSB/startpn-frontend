@@ -15,14 +15,14 @@ export const AuthProvider = ({children}) => {
   };
   const login = ({ token }) => {
     localStorage.setItem("@startpn:token", JSON.stringify(token));
-    navigate("/dashboard");
     setAuth(true);
+    navigate("/dashboard");
   }
   
-  let token = localStorage.getItem("@market:token") || ""
+  let token = localStorage.getItem("@startpn:token") || ""
 
   const tokenMemo = useMemo(() => {
-    token = localStorage.getItem("@market:token") || "" 
+    token = localStorage.getItem("@startpn:token") || "" 
     return token
   }, [token])
   

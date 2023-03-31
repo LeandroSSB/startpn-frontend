@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { DashboardLayout, TwoColumnLayout } from "../layouts";
+import Account from "../pages/account";
 import CreateCard from "../pages/createCard";
 import EditCard from "../pages/editCard";
 import { PrivateRoute, Register, Login, Playbooks } from "./../pages/index";
@@ -14,6 +15,7 @@ const Pages = () => {
         <Route path="playbooks/create" element={<CreateCard/>}> </Route>  
         <Route path="playbooks/edit"element={<EditCard/>}> </Route>  
         <Route path="playbooks" element={<Playbooks/>}></Route>
+        <Route path="account" element={<Account/>}></Route>
       </Route>
 
       <Route element={<TwoColumnLayout/>}>
