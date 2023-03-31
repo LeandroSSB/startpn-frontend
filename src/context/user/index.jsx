@@ -6,8 +6,8 @@ import api from "../../services/api";
 const userContext = createContext({})
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    const user = api.get()
-    return user 
+    // const user = api.get()
+    // return user 
   })
 
   const getUser = () => {
@@ -19,8 +19,8 @@ export const UserProvider = ({ children }) => {
   }
 
   return (
-    <userContext.Provider value={{user, getuser, updateUser }} >
-
+    <userContext.Provider value={{user, getUser, updateUser }} >
+        {children}
     </userContext.Provider>
   )
 }
