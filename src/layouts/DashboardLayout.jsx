@@ -1,5 +1,5 @@
 import { Outlet, useNavigate, NavLink, Link } from "react-router-dom"
-import { List } from "../components/index"
+import {  Div, Label, Input } from "../components/index"
 import { yourLogo, baloon, engine, account, toDo, playbooksSelect, playbooks, leave, accountSelect } from "./../images"
 
 
@@ -64,15 +64,24 @@ const DashboardLayout = ({ children }) => {
 
 
   const accountStyle = {
+    display: "flex",
+    alignItems: "center",
     width: "234.43px",
     border: "1px solid #D8D8D8",
     position: "fixed",
-    top: "27px",
+    top: "17px",
     right: "35px",
     padding: "15px",
     borderRadius: "60px"
   }
-
+  const accountImageStyle = {
+    width: "37px",
+    height: "37px",
+    display: "flex",
+    margin: "0 20px 0 0",
+    borderRadius: "100%",
+    border: "1px solid #D7D7D7",
+  }
 
   return (
     <main style={mainStyle}>
@@ -92,7 +101,10 @@ const DashboardLayout = ({ children }) => {
         <span style={itemStyle({ isActive: false})}  onClick={ () => handleLeave() }> <img style={imageStyle} src={leave} alt="leave" /> Sair </span>
     </header>
     <section style={sectionStyle}>
-      <span style={accountStyle}> Seu nome </span>
+      <span style={accountStyle}> 
+        <Div {...accountImageStyle} background={``} ></Div>
+        Seu nome 
+      </span>
       {children}
       <Outlet />
     </section>
