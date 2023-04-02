@@ -1,27 +1,33 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import api from "../../services/api";
 
 const CategoriesContext = createContext({})
 export const CategoriesProvider = ({ children }) => {
   const [categories, setCategories] = useState(() => {
     const local = JSON.parse(localStorage.getItem("@startpn:category")) || []
-    if(local){
-      return local
-    }else{
-      return []
-    }
+    return local
   })
 
   useEffect(() =>{
-    localStorage.setItem("@startpn:category", JSON.stringify(categories))
-    
-  }, [categories])
+    const fetchdata = async () => {
+      const { data } = await api.get("/categories")
+      localStorage.setItem("@startpn:category", JSON.stringify(data))
+      setCategories(data)
+    }
+    fetchdata()
+  }, [])
 
-  const addCategory = ({ category }) => {
-    if(categories.find(a => a == category)){
+  const addCategory = async ({ category }) => {
+    if(categories.find(a => a.name == category)){
       return alert("categoria repetida")
     }
-    setCategories([...categories, category])
-    localStorage.setItem("@startpn:category", JSON.stringify(categories))
+    try {
+      const { data  } = await api.post("/categories", { name: category })
+      setCategories([...categories, data])
+
+    }catch(e){
+      return alert(e.message)
+    }
   }
 
   const removeCategory = ({ category }) => {

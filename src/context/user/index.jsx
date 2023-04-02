@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext,useEffect, useState } from "react";
 import api from "../../services/api";
 
 
@@ -6,20 +6,29 @@ import api from "../../services/api";
 const userContext = createContext({})
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    // const user = api.get()
-    // return user 
+    const local = JSON.parse(localStorage.getItem("@startpn:user")) || {}
+    return local
   })
-
-  const getUser = () => {
-
+  
+  useEffect(() =>{
+    localStorage.setItem("@startpn:user", JSON.stringify(user))
+    
+  }, [user])
+  
+  const updateUser = async(user) => {
+    try {
+      await api.put("users", user)
+      setUser(user)
+    }catch(e) {
+      alert(e.message)
+    }
   }
 
-  const updateUser = (user) => {
-
+  const addUser = async(user) => {
+      setUser(user)
   }
-
   return (
-    <userContext.Provider value={{user, getUser, updateUser }} >
+    <userContext.Provider value={{ user, updateUser, addUser }} >
         {children}
     </userContext.Provider>
   )

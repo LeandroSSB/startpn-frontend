@@ -1,7 +1,7 @@
 export const buttonStyle = {
   borderRadius: '60px',
   background: '#476EE6',
-  borderStyle: 'none',
+  border: 'none',
   padding: '1rem',
   color: "white",
   width: '250px',

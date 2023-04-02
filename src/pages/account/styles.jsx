@@ -34,7 +34,6 @@ export const formStyle = {
 export const InputStyle =  {
   borderColor: "#D7D7D7",
   background: "white",
-  color:"#A0A0A0",
   borderRadius: "10px",
   width: "315px",
   margin: "1rem 0 1rem 0rem",

@@ -75,7 +75,7 @@ export const itemtitleContainer = {
   display: "flex",
   flexFlow: "row",
   justifyContent: "space-between",
-  padding: "0 10px",
+  padding: "10px",
   borderBottom: "1px solid #E4E4EF",
 }
 
@@ -118,7 +118,6 @@ export const buttonStyle = {
   border: "none",
   background: '#476EE6',
   borderStyle: 'none',
-  padding: '1rem',
   margin: "0rem 3rem 0rem 0rem",
   color: "white",
   width: '170px',

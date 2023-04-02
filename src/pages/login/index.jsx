@@ -3,16 +3,30 @@ import api from "../../services/api"
 import { Button, Form, H1, Hyperlink, Input, Label, Span } from "./../../components"
 import { TwoColumnLayout } from "./../../layouts"
 import { InputStyle, LabelStyle, formStyle, buttonStyle, hyperlinkStyle, spanStyle } from "./styles"
+import { useAuth } from "../../context/auth"
+import { useUser } from "../../context/user"
+import { useNavigate } from "react-router-dom"
+import { useCards } from "../../context/cards"
+import { useCategories } from "../../context/categories"
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const { login } = useAuth()
+  const { addUser} = useUser()
 
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // api.post("/login", {})
-    console.log(email, password)
+    try {
+      const response = await api.post("/users/login", { email: email, password: password})
+      const user = await login({ token : response.data.token})
+      addUser(user)
+      navigate("/dashboard/playbooks");
+    }catch(e) {
+      alert(e.message)
+    }
   }
 
   return (

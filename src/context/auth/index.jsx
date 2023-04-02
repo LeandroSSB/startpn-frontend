@@ -1,10 +1,20 @@
-import { createContext, useState, useContext, useEffect, useMemo} from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import api from "../../services/api";
 
 const AuthContext = createContext({})
 export const AuthProvider = ({children}) => {
-  const [auth, setAuth] = useState(false);
+  const [ token , setToken] = useState(() => {
+    const token = JSON.parse(localStorage.getItem("@startpn:token")) || "" ;
+    return token 
+  });
+  const [auth, setAuth] = useState(() => {
+    if(!token) {
+      return false
+    }
+    return true
+  });
+
   const navigate = useNavigate()
   
   const logout = () => {
@@ -13,24 +23,20 @@ export const AuthProvider = ({children}) => {
     navigate("/login");
     
   };
-  const login = ({ token }) => {
+  const login = async ({ token }) => {
     localStorage.setItem("@startpn:token", JSON.stringify(token));
+    const { data } = await api.get("/users")
     setAuth(true);
-    navigate("/dashboard");
+    setToken(token)
+    return data
   }
   
-  let token = localStorage.getItem("@startpn:token") || ""
-
-  const tokenMemo = useMemo(() => {
-    token = localStorage.getItem("@startpn:token") || "" 
-    return token
-  }, [token])
   
   useEffect(() => {
-    if (tokenMemo) {
-      setAuth(true);
+    if(!token){
+      setAuth(false);
     }
-  }, [tokenMemo]);
+  }, []);
   
 
 

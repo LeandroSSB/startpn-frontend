@@ -9,17 +9,19 @@ const Pages = () => {
   return (
     <Routes>
       <Route element={<PrivateRoute/>}>
+        <Route path="dashboard" element={<DashboardLayout/>}>
+          <Route path="playbooks/create" element={<CreateCard/>}> </Route>  
+          <Route path="playbooks/edit"element={<EditCard/>}> </Route>  
+          <Route path="playbooks" element={<Playbooks/>}></Route>
+          <Route path="account" element={<Account/>}></Route>
+        </Route>
       </Route>
       
-      <Route path="dashboard" element={<DashboardLayout/>}>
-        <Route path="playbooks/create" element={<CreateCard/>}> </Route>  
-        <Route path="playbooks/edit"element={<EditCard/>}> </Route>  
-        <Route path="playbooks" element={<Playbooks/>}></Route>
-        <Route path="account" element={<Account/>}></Route>
-      </Route>
 
       <Route element={<TwoColumnLayout/>}>
-        <Route path="/register"  element={<Register/>} > </Route>
+        <Route path="/">
+          <Route path="/register"  element={<Register/>} > </Route>
+        </Route>
         <Route path="/login"  element={<Login/>} > </Route>
       </Route>
 

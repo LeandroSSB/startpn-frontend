@@ -1,11 +1,12 @@
-import { Outlet, useNavigate, NavLink, Link } from "react-router-dom"
+import { Outlet, useNavigate, NavLink, Link, useLocation } from "react-router-dom"
 import {  Div, Label, Input } from "../components/index"
 import { yourLogo, baloon, engine, account, toDo, playbooksSelect, playbooks, leave, accountSelect } from "./../images"
-
+import { useUser } from "../context/user"
 
 
 const DashboardLayout = ({ children }) => {
   const navigate = useNavigate()
+  const { user } = useUser()
 
   const headerStyle = {
     display: "flex",
@@ -102,8 +103,8 @@ const DashboardLayout = ({ children }) => {
     </header>
     <section style={sectionStyle}>
       <span style={accountStyle}> 
-        <Div {...accountImageStyle} background={``} ></Div>
-        Seu nome 
+        <Div {...accountImageStyle} background={`url(${user.accountImage || ""})`} ></Div>
+        {user.name.substring(0, 15) + "..."}
       </span>
       {children}
       <Outlet />

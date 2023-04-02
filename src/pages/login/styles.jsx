@@ -33,7 +33,7 @@ export const buttonStyle = {
   borderRadius: '60px',
   border: "none",
   background: '#476EE6',
-  borderStyle: 'none',
+  border: 'none',
   padding: '1rem',
   margin: "0rem 3rem 0rem 0rem",
   color: "white",

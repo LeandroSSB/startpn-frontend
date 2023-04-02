@@ -6,13 +6,13 @@ import { plus, plusWhite } from "../../images"
 import { Button, Div, Form, H1, Input, Item, List } from "./../../components/index"
 import { container, cardsStyle, itemtitleContainer, itemtitle, contentStyle, buttonStyle, cardsItem, categoriesStyle, plusButton, title, listStyle, h1Style, itemStyle, InputStyle } from "./styles"
 import ReactHtmlParser from 'react-html-parser';
+import api from "../../services/api"
 
 const Playbooks = () => {
   const [toggleCategory, setToggleCategory] = useState(false)
   const [newCategory, setNewCategory] = useState("")
   const { addCategory, categories} = useCategories()
-  const { cards, createCard, removeCard} = useCards()
-
+  const { cards } = useCards()
 
   const navigate = useNavigate()
 
@@ -23,7 +23,6 @@ const Playbooks = () => {
   }
 
   const handleEditItem = (card) => {
-
     navigate("edit", {state: {card: card} } )
   }
  
@@ -34,7 +33,7 @@ const Playbooks = () => {
         <Div {...categoriesStyle}>
           <H1 {...title} >Categorias</H1>
           <List {...listStyle}>
-            {categories.map((category) => <Item key={category}> {category} </Item>)}
+            {categories.map((category) => <Item key={category.name}> {category.name} </Item>)}
             { !toggleCategory? <Item {...itemStyle} onClick={()=> setToggleCategory(toggle => !toggle)} > <img src={plus} alt="plus" /> Adicionar outra categoria</Item> :
               <Form onSubmit={handleCreateCategory}> <Input {...InputStyle} placeHolder="Nova categoria" onChange={(e) => setNewCategory(e.target.value)} type="text"> </Input>   </Form>
             }

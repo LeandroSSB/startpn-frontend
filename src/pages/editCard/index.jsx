@@ -53,10 +53,13 @@ const EditCard = () => {
   
   const handleEditCard  = () => {
 
+    console.log(categories)
+    const { id } = categories.find( a => a.name === choice) || { id: card.category}
+
     updateCards({
       name: card.name,
       newName: inputValue,
-      category: choice,
+      categoryId: id,
       content: editor
     })
 
@@ -78,7 +81,7 @@ return (
         <Div {...inputDivStyle}>
           <Label {...LabelStyle} > Categoria </Label>
           <Select {...selectStyle} defaultValue={card.category} onChange={(e) => setChoice(e.target.value)}>
-            {categories}  
+            {categories.map(a => a.name)}  
           </Select> 
         </Div>
       </Div>

@@ -14,7 +14,7 @@ const CreateCard = () => {
   const [ choice, setChoice ] = useState("")
   const { categories } = useCategories()
   const { createCard } = useCards()
-
+  console.log(editor)
   const Font = Quill.import("formats/font")
   Font.whitelist = [ 'Poppins',"sans-serif",]
   Quill.register(Font, true)
@@ -58,9 +58,12 @@ const CreateCard = () => {
       return alert("Please enter a category")
     }
 
+
+    const { id } = categories.find( a => a.name === choice)
+    
     createCard({
       name: inputValue,
-      category: choice,
+      categoryId: id,
       content: editor
     })
     navigate("/dashboard/playbooks")
@@ -78,7 +81,7 @@ const CreateCard = () => {
         <Div {...inputDivStyle}>
           <Label {...LabelStyle} > Categoria </Label>
           <Select {...selectStyle} defaultValue="" onChange={(e) => setChoice(e.target.value)}>
-            {categories}  
+            {categories.map((a) => a.name)}  
           </Select> 
         </Div>
       </Div>

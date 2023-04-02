@@ -4,6 +4,7 @@ import api from "../../services/api"
 import { TwoColumnLayout } from "../../layouts"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useUser } from "../../context/user"
 
 const Register = () => {
   const [ name, setName ] = useState("")
@@ -12,27 +13,33 @@ const Register = () => {
   const [ confirm, setConfirm ] = useState("")
   const [ checkbox, setCheckbox ] = useState(false)
   const navigate = useNavigate()
+  const { addUser } = useUser()
 
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if(pass != confirm ){
-
+      return alert("the passwords must be equal")
+    }
+    if(!checkbox){
+      return alert("please accept the terms")
     }
 
     const values = {
-      "name": name,
-      "email": email,
-      "password": pass
+      name: name,
+      email: email,
+      password: pass
     }
 
-    api.post("/login", values)
+    try {
+      const response = await api.post("/users", values )
+      navigate("../login")
+    }catch(err){
+      return alert(err.message)
+    }
+  
 
-    // navigate("dashboard")
-
-    console.log(values, checkbox)
   }
 
   return (
